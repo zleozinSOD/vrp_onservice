@@ -19,8 +19,19 @@ cfg.expediente = {
 
 O script contem o comando **/ptr** que irá mostrar a quantidade de policiais em serviço no momento.
     Se você se deparar, com algum erro relacionado a função `identity` próximo a linha 41 ou 50, tente mudar a função `identity.nome e identity.sobrenome` para `identity.name e identity.firstname`.
+    
+Tecla | Função
+------------ | -------------
+**[E]** | Entrar ou sair de serviço
+**[Y]** | Recarregar munições e pegar um novo colete
 
+
+*Lista*
 - [x] Mandar embed no Discord 
 - [x] Inserir horário no Embed
 - [x] Recarregar munições
+<<<<<<< HEAD
 - [ ] Colocar farda
+=======
+- [ ] Colocar farda.
+>>>>>>> 2d703a72095aa575252b576e1ea3fffeef1c8d7e
