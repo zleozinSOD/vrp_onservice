@@ -71,18 +71,3 @@ if user_id ~= nil then
         })
 end
 
-
-function rollback_idle_custom()
-    local user_id = vRP.getUserId({source})
-    local player = vRP.getUserSource({user_id})
-    if user_id ~= nil then
-      local data = vRP.getUserDataTable({user_id})
-      if data then
-        if data.customization ~= nil then -- consume cloakroom idle
-          print('zzz')
-          vRPclient.setCustomization(source,{data.customization})
-          print('oizzz  ')
-        end
-      end
-    end
-  end

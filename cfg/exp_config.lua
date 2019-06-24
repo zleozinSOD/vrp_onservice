@@ -18,11 +18,9 @@ cfg.expediente = { -- configuração do expediente
     },
 }
 
-cfg.municaopadrao = 500; -- padrao de munição que vai vir em cada arma kk
+cfg.municaopadrao = 500; -- padrao de munição que vai vir em cada arma 
 cfg.vidapadrao = 400; --
 
-cfg.discordURL = 'https://discordapp.com/api/webhooks/592207758934409247/2jvIiHMzBa26X6mDB-6yB7_2SJMvaxP4IoIYOKQR-TYnudTJDcBxKLnnTLQrkL8NT7Qo'; -- seu webhook
-
-cfg.nomeservidor = 'Trevo'; -- nome do servidor pra aparecer no embed
+cfg.discordURL = 'http.com/api/webhooks/xxxxxxx/xxxxx'; -- seu webhook
 
 cfg.coords = { ["x"] = 455.38616943359, ["y"] = -980.09063720703, ["z"] = 30.68957901001 }
