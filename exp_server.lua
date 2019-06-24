@@ -13,23 +13,6 @@ function vRPl.perm(p1)
     return vRP.hasPermission({user_id,p1})
   end
   
-function vRPl.padrao(voltar)
-    local user_id = vRP.getUserId({source})
-    local player = vRP.getUserSource({source})
-  vRPclient.getCustomization(player,{}, function(old_custom)
-  antigo = old_custom
-    if voltar then 
-      vRPclient.setCustomization(source,{antigo})
-    end
-      --else 
-     --   custom = {}
-   --     custom.model = 's_m_m_prisguard_01'
-        --HKclient.lockVehicle(player,{vehStorage[i].lockStatus, vehStorage[i].id})
- --       Lclient.setCustomization(player,{'s_m_m_prisguard_01'})
-end) 
-  end
-  
-
 
 
 function vRPl.sendtodiscord(webhook, entrando, PMptr)
@@ -40,14 +23,14 @@ if user_id ~= nil then
     local fields = {}
     table.insert(fields, { name = "Passaporte:", value = 'Numeração => **'..user_id..'**', inline = true });
     table.insert(fields, { name = "Nome e Sobrenome:", value = ''..identity.nome..' '..identity.sobrenome, inline = true }); --> Se der erro, mude para identity.name e identity.lastname <--
-    table.insert(fields, { name = "Registro Geral:", value = identity.registration, inline = true }); --> Se der erro, mude para identity.name e identity.lastname <--
+    table.insert(fields, { name = "Registro Geral:", value = identity.registration, inline = true }); 
     table.insert(fields, { name = "Ação:", value = acao, inline = true });
     table.insert(fields, { name = "Cargo:", value = vRP.getUserGroupByType({user_id,"job"}), inline = true });
     table.insert(fields, { name = "Horário:", value = os.date("%X"), inline = true });
     PerformHttpRequest(webhook, function(err, text, headers) end, 'POST', json.encode(
               {
                   username = "PMESP",
-                  content = ''..identity.nome..' '..identity.sobrenome..' '..acao,
+                  content = ''..identity.nome..' '..identity.sobrenome..' '..acao,--> Se der erro, mude para identity.name e identity.lastname <--
                   embeds = {
                       {
                           color = 16769280,
