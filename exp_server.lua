@@ -6,7 +6,8 @@ vRP = Proxy.getInterface("vRP")
 vRPclient = Tunnel.getInterface("vRP","vrp_onservice")
 Lclient = Tunnel.getInterface("vrp_onservice","vrp_onservice")
 Tunnel.bindInterface("vrp_onservice",vRPl)
-
+PMptr = 0
+if PMptr == nil then PMptr = 0 end
 
 function vRPl.perm(p1)
     local user_id = vRP.getUserId({source})
@@ -21,19 +22,19 @@ function vRPl.padrao(voltar)
     if voltar then 
       vRPclient.setCustomization(source,{antigo})
     end
-      --else 
-     --   custom = {}
-   --     custom.model = 's_m_m_prisguard_01'
-        --HKclient.lockVehicle(player,{vehStorage[i].lockStatus, vehStorage[i].id})
- --       Lclient.setCustomization(player,{'s_m_m_prisguard_01'})
 end) 
   end
   
 
 
 
-function vRPl.sendtodiscord(webhook, entrando, PMptr)
-    if entrando then acao = 'Entrando em serviço!' else acao = 'Saindo de serviço!' end
+function vRPl.sendtodiscord(webhook, entrando)
+    if entrando then acao = 'Entrando em serviço!'
+    PMptr = PMptr + 1 
+  else
+       acao = 'Saindo de serviço!'
+      PMptr = PMptr - 1
+      end
     local user_id = vRP.getUserId({source})
 if user_id ~= nil then
     vRP.getUserIdentity({user_id, function(identity)
@@ -70,4 +71,21 @@ if user_id ~= nil then
             args = { PMptr}
         })
 end
+
+
+RegisterCommand("ptr", function(source) 
+  if source ~= nil then 
+    TriggerClientEvent('chat:addMessage', source, {
+      template = 
+      [[<div style= "padding: 0.5vw; 
+      max-width: 400px; 
+      height: 7px;
+      margin: 0.5vw; 
+      border-radius: 3px;">
+      <i class="fa fa-bullhorn"></i> Agora temos <b>{0}</b> policiais em serviço.<br>
+      </div>
+      ]],
+          args = { PMptr}
+      })  end
+  end)
 

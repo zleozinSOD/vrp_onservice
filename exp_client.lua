@@ -38,7 +38,7 @@ while true do
 
                                 if permissaoo then 
                                     PMptr = PMptr + 1   
-                                    Lserver.sendtodiscord({cfg.discordURL, true, PMptr})
+                                    Lserver.sendtodiscord({cfg.discordURL, true})
                         end
 
                         end)
@@ -51,7 +51,7 @@ while true do
                             RemoveAllPedWeapons(jogador, false)
                             darColete(0)
                             PMptr = PMptr - 1
-                            Lserver.sendtodiscord({cfg.discordURL, false, PMptr})
+                            Lserver.sendtodiscord({cfg.discordURL, false})
                             ativo = false
                             end
                     end)
@@ -81,8 +81,5 @@ while true do
 end
 end)
 
-RegisterCommand("ptr", function(source) 
-if source ~= nil then TriggerEvent('chatMessage', "^1[COPOM]", { 255, 255, 255}, "^2Agora há ^1"..PMptr.."^2 policiais em serviço!") end
-end)
 
 
