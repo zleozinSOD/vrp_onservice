@@ -7,6 +7,7 @@ vRPclient = Tunnel.getInterface("vRP","vrp_onservice")
 Lclient = Tunnel.getInterface("vrp_onservice","vrp_onservice")
 Tunnel.bindInterface("vrp_onservice",vRPl)
 PMptr = 0
+
 if PMptr == nil then PMptr = 0 end
 
 function vRPl.perm(p1)

@@ -6,7 +6,6 @@ vRPl = Tunnel.getInterface("vrp_onservice","vrp_onservice")
 Tunnel.bindInterface("vrp_onservice",vRPl)
 
 ativo = false;
-PMptr = 0;
 
 Citizen.CreateThread( function()
 while true do 
@@ -37,7 +36,6 @@ while true do
                                 if v.colete then darColete(100) end 
 
                                 if permissaoo then 
-                                    PMptr = PMptr + 1   
                                     Lserver.sendtodiscord({cfg.discordURL, true})
                         end
 
@@ -50,7 +48,6 @@ while true do
                             if permissaoo and ativo then 
                             RemoveAllPedWeapons(jogador, false)
                             darColete(0)
-                            PMptr = PMptr - 1
                             Lserver.sendtodiscord({cfg.discordURL, false})
                             ativo = false
                             end
