@@ -21,5 +21,6 @@ O script contem o comando **/ptr** que irá mostrar a quantidade de policiais em
     Se você se deparar, com algum erro relacionado a função `identity` próximo a linha 41 ou 50, tente mudar a função `identity.nome e identity.sobrenome` para `identity.name e identity.firstname`.
 
 - [x] Mandar embed no Discord 
+- [x] Inserir horário no Embed
 - [x] Recarregar munições
-- [ ] Colocar farda.
+- [ ] Colocar farda
