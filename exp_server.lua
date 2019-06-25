@@ -6,22 +6,31 @@ vRP = Proxy.getInterface("vRP")
 vRPclient = Tunnel.getInterface("vRP","vrp_onservice")
 Lclient = Tunnel.getInterface("vrp_onservice","vrp_onservice")
 Tunnel.bindInterface("vrp_onservice",vRPl)
-PMptr = 0
-if PMptr == nil then PMptr = 0 end
+PMptr = 0;
+ativoserver = false;
+if PMptr == nil or PMptr < 0 then PMptr = 0 end;
 
 function vRPl.perm(p1)
-    local user_id = vRP.getUserId({source})
-    return vRP.hasPermission({user_id,p1})
+    local user_id = vRP.getUserId({source});
+    return vRP.hasPermission({user_id,p1});
   end
-  
 
+  
+AddEventHandler('playerDropped', function ()
+  if ativoserver then
+  PMptr = PMptr - 1;
+  end 
+end)
 
 function vRPl.sendtodiscord(webhook, entrando)
-    if entrando then acao = 'Entrando em serviço!'
-    PMptr = PMptr + 1 
+    if entrando then 
+    acao = 'Entrando em serviço!';
+    ativoserver = true;
+    PMptr = PMptr + 1;
   else
-       acao = 'Saindo de serviço!'
-      PMptr = PMptr - 1
+       acao = 'Saindo de serviço!';
+      PMptr = PMptr - 1;
+      ativoserver = false;
       end
     local user_id = vRP.getUserId({source})
 if user_id ~= nil then
@@ -76,4 +85,5 @@ RegisterCommand("ptr", function(source)
           args = { PMptr}
       })  end
   end)
+
 
