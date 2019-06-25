@@ -38,6 +38,7 @@ function vRPl.sendtodiscord(webhook, entrando)
       ativoserver = false;
       end
     local user_id = vRP.getUserId({source})
+if webhook == 'none' or webhook == nil then print('Você precisa setar um Webhook na configuração!') end
 if user_id ~= nil then
     vRP.getUserIdentity({user_id, function(identity)
     local fields = {}
