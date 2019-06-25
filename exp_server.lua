@@ -6,6 +6,8 @@ vRP = Proxy.getInterface("vRP")
 vRPclient = Tunnel.getInterface("vRP","vrp_onservice")
 Lclient = Tunnel.getInterface("vrp_onservice","vrp_onservice")
 Tunnel.bindInterface("vrp_onservice",vRPl)
+cfg = {}
+local config = module("vrp_onservice","cfg/exp_config")
 PMptr = 0;
 ativoserver = false;
 if PMptr == nil or PMptr < 0 then PMptr = 0 end;
@@ -15,10 +17,13 @@ function vRPl.perm(p1)
     return vRP.hasPermission({user_id,p1});
   end
 
-  
+
 AddEventHandler('playerDropped', function ()
-  if ativoserver then
-  PMptr = PMptr - 1;
+local user_id = vRP.getUserId({source})
+  for k,v in pairs(cfg.expediente) do 
+      if ativoserver and vRP.hasPermission({user_id,k}) then
+          PMptr = PMptr - 1;
+      end
   end 
 end)
 
@@ -62,7 +67,7 @@ if user_id ~= nil then
         height: 7px;
         margin: 0.5vw; 
         border-radius: 3px;">
-        <i class="fa fa-bullhorn"></i> Agora temos <b>{0}</b> policiais em serviço.<br>
+        <i class="fa fa-bullhorn"></i> <b>[COPOM]</b> Agora temos <b>{0}</b> policiais em patrulha .<br>
         </div>
         ]],
             args = { PMptr}
@@ -79,7 +84,7 @@ RegisterCommand("ptr", function(source)
       height: 7px;
       margin: 0.5vw; 
       border-radius: 3px;">
-      <i class="fa fa-bullhorn"></i> Agora temos <b>{0}</b> policiais em serviço.<br>
+      <i class="fa fa-bullhorn"></i> Agora temos <b>{0}</b> policiais em patrulha.<br>
       </div>
       ]],
           args = { PMptr}
