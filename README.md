@@ -26,12 +26,8 @@ Tecla | Função
 **[Y]** | Recarregar munições e pegar um novo colete
 
 
-*Lista*
+*TODO*
 - [x] Mandar embed no Discord 
 - [x] Inserir horário no Embed
 - [x] Recarregar munições
-<<<<<<< HEAD
-- [ ] Colocar farda
-=======
 - [ ] Colocar farda.
->>>>>>> 2d703a72095aa575252b576e1ea3fffeef1c8d7e
