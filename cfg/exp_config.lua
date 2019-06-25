@@ -21,6 +21,6 @@ cfg.expediente = { -- configuração do expediente
 cfg.municaopadrao = 500; -- padrao de munição que vai vir em cada arma 
 cfg.vidapadrao = 400; --
 
-cfg.discordURL = 'http.com/api/webhooks/xxxxxxx/xxxxx'; -- seu webhook
+cfg.discordURL = 'none'; -- seu webhook
 
 cfg.coords = { ["x"] = 455.38616943359, ["y"] = -980.09063720703, ["z"] = 30.68957901001 }
